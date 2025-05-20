@@ -1,0 +1,68 @@
+body { 
+margin: 0; 
+font-family: 'Courier New', monospace; 
+background: #f2f2f2; 
+color: #222; 
+} 
+header { 
+background: #111; 
+color: #f8f8f8; 
+padding: 2rem; 
+text-align: center; 
+} 
+.tagline { 
+font-style: italic; 
+font-size: 1.2rem; 
+color: #ccc; 
+} 
+.hero { 
+text-align: center; 
+margin: 2rem; 
+} 
+.hero img { 
+width: 300px; 
+max-width: 90%; 
+border-radius: 12px; 
+margin-bottom: 1rem; 
+} 
+.hero button { 
+background: #111; 
+color: #fff; 
+border: none; 
+padding: 1rem 2rem; 
+font-size: 1rem; 
+cursor: pointer; 
+border-radius: 6px; 
+transition: background 0.3s; 
+} 
+.hero button:hover { 
+background: #444; 
+} 
+.intro { 
+max-width: 600px; 
+margin: 0 auto 2rem; 
+text-align: center; 
+} 
+.preview { 
+display: flex; 
+justify-content: center; 
+flex-wrap: wrap; 
+gap: 2rem; 
+padding: 1rem; 
+} 
+.card { 
+background: #fff; 
+border: 2px dashed #222; 
+padding: 1rem; 
+width: 250px; 
+border-radius: 8px; 
+text-align: center; 
+box-shadow: 4px 4px 0 #ccc; 
+} 
+footer { 
+text-align: center; 
+padding: 2rem 1rem; 
+font-size: 0.9rem; 
+color: #777; 
+}
+

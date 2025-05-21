@@ -69,8 +69,17 @@ function askTheOracle() {
     "🔥 Yes — but at what cost?",
     "🪐 It's written in the stars... maybe."
   ];
-  const random = responses[Math.floor(Math.random() * responses.length)];
-  document.getElementById("oracle-response").innerText = random;
+  const output = document.getElementById("oracle-response");
+  
+  // Remove sparkle class (so animation can retrigger)
+  output.classList.remove("sparkle");
+
+  // Set the new message
+  output.innerText = responses[Math.floor(Math.random() * responses.length)];
+
+  // Re-add sparkle class to trigger animation
+  void output.offsetWidth; // forces reflow
+  output.classList.add("sparkle");
 }
 </script>
 </body> 

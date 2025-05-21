@@ -21,18 +21,13 @@
 
 <main> 
 <section class="hero"> 
-  <section class="oracle">
-    <button class="oracle-button" onclick="askTheOracle()">Ask the Oracle</button>
-    <p id="oracle-response" style="margin-top: 1.5rem;"></p>
-  </section>
-
-  <img src="images/hand-placeholder.jpg" alt="Glorious hand" /> 
-
-  <button onclick="alert('You have been spiritually fingered.')">
-    Enter the palms of truth
-  </button> 
+<section class="oracle">
+  <button class="oracle-button" onclick="askTheOracle()">Ask the Oracle</button>
+  <p id="oracle-response" style="margin-top: 1.5rem;"></p>
 </section>
-
+<img src="images/hand-placeholder.jpg" alt="Glorious hand" /> 
+<button onclick="alert('You have been spiritually fingered.')">Enter the palms of truth</button> 
+</section> 
 <section class="intro"> 
 <h2>Welcome to onlyhands</h2> 
 <p>A surreal blend of hand modeling, profiling, and digital divination. Part satire, part psychic hotline. Entirely too much.</p> 
@@ -69,19 +64,9 @@ function askTheOracle() {
     "🔥 Yes — but at what cost?",
     "🪐 It's written in the stars... maybe."
   ];
-  const output = document.getElementById("oracle-response");
-  
-  // Remove sparkle class (so animation can retrigger)
-  output.classList.remove("sparkle");
-
-  // Set the new message
-  output.innerText = responses[Math.floor(Math.random() * responses.length)];
-
-  // Re-add sparkle class to trigger animation
-  void output.offsetWidth; // forces reflow
-  output.classList.add("sparkle");
+  const random = responses[Math.floor(Math.random() * responses.length)];
+  document.getElementById("oracle-response").innerText = random;
 }
 </script>
 </body> 
 </html>
-

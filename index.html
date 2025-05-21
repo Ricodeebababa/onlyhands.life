@@ -50,6 +50,24 @@
 <footer> 
 <p>&copy; 2025 onlyhands.life | Built with love and slightly cursed code</p> 
 </footer> 
+<script>
+function askTheOracle() {
+  const responses = [
+    "💫 Absolutely.",
+    "🔮 The spirits say... try again later.",
+    "👁️‍🗨️ All signs point to chaos.",
+    "✨ You already know the answer.",
+    "☠️ LOL no.",
+    "🪬 The hand you seek is seeking you.",
+    "👻 Ghosts approve.",
+    "🧿 Not while Mercury’s in retrograde.",
+    "🔥 Yes — but at what cost?",
+    "🪐 It's written in the stars... maybe."
+  ];
+  const random = responses[Math.floor(Math.random() * responses.length)];
+  document.getElementById("oracle-response").innerText = random;
+}
+</script>
 </body> 
 </html>
 

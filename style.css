@@ -171,4 +171,12 @@ button:hover {
   box-shadow: 0 0 25px #fff, 0 0 45px #ff66cc;
 }
 
-#oracle-respon
+#oracle-response.sparkle {
+  animation: sparkleFlash 0.8s ease;
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #ff00cc,
+    0 0 20px #00ffff,
+    0 0 30px #ff00cc;
+}

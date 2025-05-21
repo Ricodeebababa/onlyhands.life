@@ -1,5 +1,5 @@
-<!DOCTYPE html> 
-<html lang="en"> 
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,65 +8,69 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Monoton&display=swap" rel="stylesheet">
 </head>
 
-<body> 
-<header>
-  <h1>onlyhands.life</h1>
+<body>
+  <header>
+    <h1>onlyhands.life</h1>
+    <img src="images/anime-hand.gif" alt="Animated hand" style="width: 120px; margin: 1rem auto;" />
+    <marquee behavior="scroll" direction="left" scrollamount="6">It’s not what you think.</marquee>
+  </header>
 
-  <img src="images/anime-hand.gif" alt="Animated hand" style="width: 120px; margin: 1rem auto;" />
+  <main>
+    <section class="hero">
+      <img src="images/hand-placeholder.jpg" alt="Glorious hand" />
+      <button onclick="alert('You have been spiritually fingered.')">Enter the palms of truth</button>
+    </section>
 
-  <marquee behavior="scroll" direction="left" scrollamount="6">
-    It’s not what you think.
-  </marquee>
-</header>
+    <section class="oracle">
+      <button class="oracle-button" onclick="askTheOracle()">Ask the Oracle</button>
+      <p id="oracle-response"></p>
+    </section>
 
-<main> 
-<section class="hero"> 
-<section class="oracle">
-  <button class="oracle-button" onclick="askTheOracle()">Ask the Oracle</button>
-  <p id="oracle-response" style="margin-top: 1.5rem;"></p>
-</section>
-<img src="images/hand-placeholder.jpg" alt="Glorious hand" /> 
-<button onclick="alert('You have been spiritually fingered.')">Enter the palms of truth</button> 
-</section> 
-<section class="intro"> 
-<h2>Welcome to onlyhands</h2> 
-<p>A surreal blend of hand modeling, profiling, and digital divination. Part satire, part psychic hotline. Entirely too much.</p> 
-</section> 
-<section class="preview"> 
-<div class="card"> 
-<h3>The Gallery</h3> 
-<p>Absurd, artistic, and hand-crafted imagery. Sometimes literal.</p> 
-</div> 
-<div class="card"> 
-<h3>The Profiles</h3> 
-<p>Submit your hands. Get a personality breakdown and your potential criminal record (fictional... probably).</p> 
-</div> 
-<div class="card"> 
-<h3>The Oracle</h3> 
-<p>Channeling deep truths through digit-based divination. Pinkies hold secrets.</p> 
-</div> 
-</section> 
-</main> 
-<footer> 
-<p>&copy; 2025 onlyhands.life | Built with love and slightly cursed code</p> 
-</footer> 
-<script>
-function askTheOracle() {
-  const responses = [
-    "💫 Absolutely.",
-    "🔮 The spirits say... try again later.",
-    "👁️‍🗨️ All signs point to chaos.",
-    "✨ You already know the answer.",
-    "☠️ LOL no.",
-    "🪬 The hand you seek is seeking you.",
-    "👻 Ghosts approve.",
-    "🧿 Not while Mercury’s in retrograde.",
-    "🔥 Yes — but at what cost?",
-    "🪐 It's written in the stars... maybe."
-  ];
-  const random = responses[Math.floor(Math.random() * responses.length)];
-  document.getElementById("oracle-response").innerText = random;
-}
-</script>
-</body> 
+    <section class="intro">
+      <h2>Welcome to onlyhands</h2>
+      <p>A surreal blend of hand modeling, profiling, and digital divination. Part satire, part psychic hotline. Entirely too much.</p>
+    </section>
+
+    <section class="preview">
+      <div class="card">
+        <h3>The Gallery</h3>
+        <p>Absurd, artistic, and hand-crafted imagery. Sometimes literal.</p>
+      </div>
+      <div class="card">
+        <h3>The Profiles</h3>
+        <p>Submit your hands. Get a personality breakdown and your potential criminal record (fictional... probably).</p>
+      </div>
+      <div class="card">
+        <h3>The Oracle</h3>
+        <p>Channeling deep truths through digit-based divination. Pinkies hold secrets.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 onlyhands.life | Built with love and slightly cursed code</p>
+  </footer>
+
+  <script>
+    function askTheOracle() {
+      const responses = [
+        "💫 Absolutely.",
+        "🔮 The spirits say... try again later.",
+        "👁️‍🗨️ All signs point to chaos.",
+        "✨ You already know the answer.",
+        "☠️ LOL no.",
+        "🪬 The hand you seek is seeking you.",
+        "👻 Ghosts approve.",
+        "🧿 Not while Mercury’s in retrograde.",
+        "🔥 Yes — but at what cost?",
+        "🪐 It's written in the stars... maybe."
+      ];
+      const random = responses[Math.floor(Math.random() * responses.length)];
+      const oracle = document.getElementById("oracle-response");
+      oracle.innerText = random;
+      oracle.classList.add("sparkle");
+      setTimeout(() => oracle.classList.remove("sparkle"), 800);
+    }
+  </script>
+</body>
 </html>

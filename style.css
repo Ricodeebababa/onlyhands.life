@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  width: 100vw;
   font-family: 'Press Start 2P', cursive;
   background: radial-gradient(circle at top, #000000, #1a0033);
   color: #39ff14;
@@ -13,7 +14,8 @@ body {
 /* === HEADER === */
 header {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  min-width: 100vw;
   margin: 0;
   padding: 2rem 0;
   background: linear-gradient(90deg, #ff00cc, #3333ff);
@@ -31,13 +33,35 @@ h1 {
   margin: 0;
   letter-spacing: 3px;
   text-transform: uppercase;
+  animation: glowCycle 2s ease-in-out infinite alternate, h1Pulse 1.5s infinite ease-in-out;
   text-shadow:
     0 0 5px #00ffff,
     0 0 10px #00ffff,
     0 0 20px #ff00cc,
     0 0 40px #ff00cc,
     0 0 60px #ffffff;
-  animation: glowCycle 2s ease-in-out infinite alternate, h1Pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes glowCycle {
+  0% {
+    color: #00ffff;
+    text-shadow:
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 20px #ff00cc;
+  }
+  100% {
+    color: #ff66cc;
+    text-shadow:
+      0 0 5px #ff66cc,
+      0 0 15px #ff66cc,
+      0 0 30px #00ffff;
+  }
+}
+
+@keyframes h1Pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 
 /* === MARQUEE TAGLINE === */
@@ -50,13 +74,6 @@ marquee {
 }
 
 /* === HERO SECTION === */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem;
-}
-
 .hero img {
   width: 250px;
   border: 5px solid #ff00cc;
@@ -65,50 +82,6 @@ marquee {
   box-shadow: 0 0 30px #ff00cc;
 }
 
-/* === ORACLE SECTION === */
-.oracle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem;
-}
-
-.oracle-button {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1rem;
-  padding: 1rem 2rem;
-  color: #000;
-  background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
-  background-size: 300% 300%;
-  border: 3px double #fff;
-  text-shadow: 0 0 2px #fff, 0 0 10px #ff00ff;
-  box-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
-  cursor: pointer;
-  animation: shinePulse 1.5s infinite, colorFlow 5s ease infinite;
-  transition: transform 0.2s ease-in-out;
-  text-transform: uppercase;
-}
-
-.oracle-button:hover {
-  transform: scale(1.1) rotate(-1deg);
-  box-shadow: 0 0 25px #fff, 0 0 45px #ff66cc;
-}
-
-#oracle-response {
-  margin-top: 1.5rem;
-}
-
-#oracle-response.sparkle {
-  animation: sparkleFlash 0.8s ease;
-  color: #ffffff;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #ff00cc,
-    0 0 20px #00ffff,
-    0 0 30px #ff00cc;
-}
-
-/* === BUTTONS === */
 button {
   font-family: 'Press Start 2P', cursive;
   background: #ff00cc;
@@ -140,4 +113,62 @@ button:hover {
   animation: pulseGlow 2s infinite alternate;
 }
 
-/* ===*
+/* === ANIMATIONS === */
+@keyframes flicker {
+  0% { opacity: 1; }
+  100% { opacity: 0.85; transform: rotate(0.1deg); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px #0ff; }
+  100% { box-shadow: 0 0 20px #0ff, 0 0 40px #39ff14; }
+}
+
+@keyframes shinePulse {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+  100% { filter: brightness(1); }
+}
+
+@keyframes sparkleFlash {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) rotate(-2deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes colorFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.oracle-button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  color: #000;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+  background-size: 300% 300%;
+  border: 3px double #fff;
+  text-shadow: 0 0 2px #fff, 0 0 10px #ff00ff;
+  box-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+  cursor: pointer;
+  animation: shinePulse 1.5s infinite, colorFlow 5s ease infinite;
+  transition: transform 0.2s ease-in-out;
+  text-transform: uppercase;
+}
+
+.oracle-button:hover {
+  transform: scale(1.1) rotate(-1deg);
+  box-shadow: 0 0 25px #fff, 0 0 45px #ff66cc;
+}
+
+#oracle-respon

@@ -28,16 +28,40 @@ header {
 /* === TITLE === */
 h1 {
   font-family: 'Monoton', cursive;
-  font-size: 4rem;
+  font-size: 4.5rem;
   color: #00ffff;
   margin: 0;
-  text-shadow:
-    0 0 10px #00ffff,
-    0 0 20px #00ffff,
-    0 0 40px #ff00cc,
-    0 0 80px #ff00cc;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  animation: glowCycle 2s ease-in-out infinite alternate, h1Pulse 1.5s infinite ease-in-out;
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #ff00cc,
+    0 0 40px #ff00cc,
+    0 0 60px #ffffff;
+}
+
+@keyframes glowCycle {
+  0% {
+    color: #00ffff;
+    text-shadow:
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 20px #ff00cc;
+  }
+  100% {
+    color: #ff66cc;
+    text-shadow:
+      0 0 5px #ff66cc,
+      0 0 15px #ff66cc,
+      0 0 30px #00ffff;
+  }
+}
+
+@keyframes h1Pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 
 /* === MARQUEE TAGLINE === */

@@ -1,25 +1,30 @@
 /* === RESET + BODY === */
 body {
   margin: 0;
+  padding: 0;
+  width: 100vw;
   font-family: 'Press Start 2P', cursive;
   background: radial-gradient(circle at top, #000000, #1a0033);
   color: #39ff14;
   text-align: center;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* === HEADER === */
 header {
   position: relative;
   width: 100vw;
-  background: linear-gradient(90deg, #ff00cc, #3333ff);
-  padding: 2rem 0;
+  min-width: 100vw;
   margin: 0;
+  padding: 2rem 0;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
   text-align: center;
   box-sizing: border-box;
   text-shadow: 0 0 5px #fff, 0 0 20px #ff00cc;
   animation: flicker 1.5s infinite alternate;
 }
+
 /* === TITLE === */
 h1 {
   font-family: 'Monoton', cursive;

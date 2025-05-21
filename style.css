@@ -10,12 +10,15 @@ body {
 
 /* === HEADER === */
 header {
+  width: 100%;
+  box-sizing: border-box;
   background: linear-gradient(90deg, #ff00cc, #3333ff);
-  padding: 2rem;
+  padding: 2rem 1rem 1rem;
   text-shadow: 0 0 5px #fff, 0 0 20px #ff00cc;
   animation: flicker 1.5s infinite alternate;
 }
 
+/* === TITLE === */
 h1 {
   font-family: 'Monoton', cursive;
   font-size: 3rem;
@@ -23,9 +26,12 @@ h1 {
   margin: 0;
 }
 
-.tagline {
+/* === MARQUEE TAGLINE === */
+marquee {
+  display: block;
+  margin-top: 1rem;
+  color: #ff66cc;
   font-size: 1rem;
-  color: #ffffff;
   text-shadow: 0 0 5px #0ff;
 }
 

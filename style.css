@@ -10,14 +10,16 @@ body {
 
 /* === HEADER === */
 header {
-  width: 100%;
-  box-sizing: border-box;
+  position: relative;
+  width: 100vw;
   background: linear-gradient(90deg, #ff00cc, #3333ff);
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 0;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
   text-shadow: 0 0 5px #fff, 0 0 20px #ff00cc;
   animation: flicker 1.5s infinite alternate;
 }
-
 /* === TITLE === */
 h1 {
   font-family: 'Monoton', cursive;

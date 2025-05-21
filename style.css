@@ -23,9 +23,16 @@ header {
 /* === TITLE === */
 h1 {
   font-family: 'Monoton', cursive;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #00ffff;
   margin: 0;
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #ff00cc,
+    0 0 80px #ff00cc;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 /* === MARQUEE TAGLINE === */

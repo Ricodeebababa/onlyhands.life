@@ -282,3 +282,61 @@ button:hover {
     overflow-x: hidden;
   }
 }
+/* === PALM READER SECTION === */
+.palm-reader {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px dashed #ff00cc;
+  padding: 2rem;
+  margin: 3rem auto;
+  width: 85%;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ff00cc;
+  animation: pulseGlow 3s infinite alternate;
+}
+
+.palm-reader h2 {
+  color: #00ffff;
+  font-size: 1.5rem;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+.palm-reader label {
+  color: #ff66cc;
+  font-size: 0.85rem;
+}
+
+.palm-reader select {
+  font-family: 'Press Start 2P', cursive;
+  background: #1a0033;
+  color: #39ff14;
+  border: 2px solid #00ffff;
+  padding: 0.5rem;
+  width: 90%;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.palm-scan {
+  width: 150px;
+  margin-bottom: 1rem;
+  filter: brightness(1.2) drop-shadow(0 0 10px #00ffff);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.palm-scan:hover {
+  filter: brightness(2) drop-shadow(0 0 25px #00ffff);
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.vhs-output {
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  color: #39ff14;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #00ffff;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  text-shadow: 0 0 2px #00ffff, 0 0 8px #ff00cc;
+  box-shadow: 0 0 20px #00ffff;
+  animation: flicker 1.2s infinite alternate;
+}

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html lang="en"> 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,69 +8,123 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Monoton&display=swap" rel="stylesheet">
 </head>
 
-<body>
-  <header>
-    <h1>onlyhands.life</h1>
-    <img src="images/anime-hand.gif" alt="Animated hand" style="width: 120px; margin: 1rem auto;" />
-    <marquee behavior="scroll" direction="left" scrollamount="6">It’s not what you think.</marquee>
-  </header>
+<body> 
+<header>
+  <h1>onlyhands.life</h1>
+  <img src="images/anime-hand.gif" alt="Animated hand" style="width: 120px; margin: 1rem auto;" />
+  <marquee behavior="scroll" direction="left" scrollamount="6">It’s not what you think.</marquee>
+</header>
 
-  <main>
-    <section class="hero">
-      <img src="images/hand-placeholder.jpg" alt="Glorious hand" />
-      <button onclick="alert('You have been spiritually fingered.')">Enter the palms of truth</button>
-    </section>
-
+<main> 
+  <section class="hero"> 
     <section class="oracle">
       <button class="oracle-button" onclick="askTheOracle()">Ask the Oracle</button>
-      <p id="oracle-response"></p>
+      <p id="oracle-response" style="margin-top: 1.5rem;"></p>
     </section>
+    <img src="images/hand-placeholder.jpg" alt="Glorious hand" /> 
+    <button onclick="alert('You have been spiritually fingered.')">Enter the palms of truth</button> 
+  </section> 
 
-    <section class="intro">
-      <h2>Welcome to onlyhands</h2>
-      <p>A surreal blend of hand modeling, profiling, and digital divination. Part satire, part psychic hotline. Entirely too much.</p>
-    </section>
+  <section class="intro"> 
+    <h2>Welcome to onlyhands</h2> 
+    <p>A surreal blend of hand modeling, profiling, and digital divination. Part satire, part psychic hotline. Entirely too much.</p> 
+  </section> 
 
-    <section class="preview">
-      <div class="card">
-        <h3>The Gallery</h3>
-        <p>Absurd, artistic, and hand-crafted imagery. Sometimes literal.</p>
-      </div>
-      <div class="card">
-        <h3>The Profiles</h3>
-        <p>Submit your hands. Get a personality breakdown and your potential criminal record (fictional... probably).</p>
-      </div>
-      <div class="card">
-        <h3>The Oracle</h3>
-        <p>Channeling deep truths through digit-based divination. Pinkies hold secrets.</p>
-      </div>
-    </section>
-  </main>
+  <section class="preview"> 
+    <div class="card"> 
+      <h3>The Gallery</h3> 
+      <p>Absurd, artistic, and hand-crafted imagery. Sometimes literal.</p> 
+    </div> 
+    <div class="card"> 
+      <h3>The Profiles</h3> 
+      <p>Submit your hands. Get a personality breakdown and your potential criminal record (fictional... probably).</p> 
+    </div> 
+    <div class="card"> 
+      <h3>The Oracle</h3> 
+      <p>Channeling deep truths through digit-based divination. Pinkies hold secrets.</p> 
+    </div> 
+  </section> 
 
-  <footer>
-    <p>&copy; 2025 onlyhands.life | Built with love and slightly cursed code</p>
-  </footer>
+  <section class="palm-reader">
+    <h2>Virtual Palm Reader</h2>
+    <img src="images/scan-hand.png" class="palm-scan" alt="Palm Scan" />
+    <form id="palmForm">
+      <label>Life Line:</label><br/>
+      <select name="lifeLine">
+        <option value="long">Long and deep</option>
+        <option value="short">Short and faint</option>
+        <option value="broken">Broken in places</option>
+      </select><br/><br/>
 
-  <script>
-    function askTheOracle() {
-      const responses = [
-        "💫 Absolutely.",
-        "🔮 The spirits say... try again later.",
-        "👁️‍🗨️ All signs point to chaos.",
-        "✨ You already know the answer.",
-        "☠️ LOL no.",
-        "🪬 The hand you seek is seeking you.",
-        "👻 Ghosts approve.",
-        "🧿 Not while Mercury’s in retrograde.",
-        "🔥 Yes — but at what cost?",
-        "🪐 It's written in the stars... maybe."
-      ];
-      const random = responses[Math.floor(Math.random() * responses.length)];
-      const oracle = document.getElementById("oracle-response");
-      oracle.innerText = random;
-      oracle.classList.add("sparkle");
-      setTimeout(() => oracle.classList.remove("sparkle"), 800);
-    }
-  </script>
-</body>
+      <label>Head Line:</label><br/>
+      <select name="headLine">
+        <option value="straight">Straight and sharp</option>
+        <option value="curved">Curved and dreamy</option>
+        <option value="split">Split into two</option>
+      </select><br/><br/>
+
+      <label>Heart Line:</label><br/>
+      <select name="heartLine">
+        <option value="high">High and strong</option>
+        <option value="low">Low and short</option>
+        <option value="chained">Chained or broken</option>
+      </select><br/><br/>
+
+      <button type="submit" class="oracle-button">Read My Palm</button>
+    </form>
+    <p id="palmResult" class="vhs-output"></p>
+  </section>
+</main> 
+
+<footer> 
+  <p>&copy; 2025 onlyhands.life | Built with love and slightly cursed code</p> 
+</footer> 
+
+<script>
+function askTheOracle() {
+  const responses = [
+    "🌛 Absolutely.",
+    "🔮 The spirits say... try again later.",
+    "🔁️ All signs point to chaos.",
+    "✨ You already know the answer.",
+    "☠️ LOL no.",
+    "🪬 The hand you seek is seeking you.",
+    "👻 Ghosts approve.",
+    "🫿 Not while Mercury’s in retrograde.",
+    "🔥 Yes — but at what cost?",
+    "🚰 It's written in the stars... maybe."
+  ];
+  const random = responses[Math.floor(Math.random() * responses.length)];
+  document.getElementById("oracle-response").innerText = random;
+}
+
+// Palm Reader Form Logic
+const palmForm = document.getElementById("palmForm");
+palmForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const life = palmForm.lifeLine.value;
+  const head = palmForm.headLine.value;
+  const heart = palmForm.heartLine.value;
+
+  let result = "📼 Reading your palm through static...\n";
+
+  if (life === "long") result += "You’ve crossed timelines before. 🌀\n";
+  if (life === "short") result += "You burn fast. Some stars do. ✨\n";
+  if (life === "broken") result += "Your soul fell through cracks in fate. 🔮\n";
+
+  if (head === "straight") result += "Your logic slices like neon wire. ⚡\n";
+  if (head === "curved") result += "Your mind loops through dreamcode. 💭\n";
+  if (head === "split") result += "Two minds. Two truths. 👁️👁️\n";
+
+  if (heart === "high") result += "You love hard and leave echoes. 💘\n";
+  if (heart === "low") result += "Your heart is armor and mystery. 🛡️\n";
+  if (heart === "chained") result += "Every link forged in heartbreak. 🕸️\n";
+
+  const resultBox = document.getElementById("palmResult");
+  resultBox.innerText = result;
+  resultBox.classList.add("sparkle");
+  setTimeout(() => resultBox.classList.remove("sparkle"), 1500);
+});
+</script>
+</body> 
 </html>

@@ -74,7 +74,8 @@ marquee {
 
 /* === HERO SECTION === */
 .hero img {
-  width: 250px;
+  max-width: 100%;
+  height: auto;
   border: 5px solid #ff00cc;
   border-radius: 12px;
   margin: 2rem 0;
@@ -351,6 +352,16 @@ button:hover {
   .glorious-hand {
     width: 90% !important;
   }
+}
+.glorious-hand {
+  display: block;
+  width: 400px;
+  max-width: 95vw;
+  margin: 2rem auto;
+  border: 5px solid #ff00cc;
+  border-radius: 12px;
+  box-shadow: 0 0 30px #ff00cc;
+  transition: transform 0.3s ease-in-out;
 }
 
   text-shadow: 0 0 2px #00ffff, 0 0 8px #ff00cc;

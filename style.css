@@ -15,7 +15,6 @@ body {
 header {
   position: relative;
   width: 100%;
-  margin: 0;
   padding: 2rem 0;
   background: linear-gradient(90deg, #ff00cc, #3333ff);
   text-align: center;
@@ -49,15 +48,6 @@ marquee {
   text-shadow: 0 0 5px #0ff;
 }
 
-/* === HERO SECTION === */
-.hero img {
-  max-width: 100%;
-  height: auto;
-  margin: 2rem 0;
-  border-radius: 12px;
-  box-shadow: 0 0 30px #ff00cc;
-}
-
 /* === MAIN HAND IMAGE === */
 .beautiful-hand {
   display: block;
@@ -69,8 +59,6 @@ marquee {
   border-radius: 12px;
   box-shadow: 0 0 30px #ff00cc;
 }
-
-
 
 /* === BUTTONS === */
 button,
@@ -220,8 +208,8 @@ button:hover,
     letter-spacing: 1px;
   }
 
-  .hero img,
   .beautiful-hand,
+  .hero img,
   .oracle img {
     width: 90% !important;
   }
@@ -254,9 +242,5 @@ button:hover,
   header {
     padding: 1rem 0;
     background-size: cover;
-  }
-
-  body {
-    overflow-x: hidden;
   }
 }

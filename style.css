@@ -338,15 +338,22 @@ button:hover {
   padding: 1rem;
   margin-top: 1.5rem;
 
-  .glorious-hand {
-  width: 400px;
-  max-width: 95vw;
+ .glorious-hand {
+  display: block;
+  width: 500px;              /* bigger for desktop */
+  max-width: 90vw;           /* still responsive */
+  margin: 2rem auto;         /* centers the image */
   border: 5px solid #ff00cc;
   border-radius: 12px;
-  margin: 2rem 0;
   box-shadow: 0 0 30px #ff00cc;
   transition: transform 0.3s ease-in-out;
 }
+@media (max-width: 600px) {
+  .glorious-hand {
+    width: 90% !important;   /* keeps it small on phones */
+  }
+}
+
 
 @media (max-width: 600px) {
   .glorious-hand {

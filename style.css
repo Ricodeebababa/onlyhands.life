@@ -267,3 +267,12 @@ button:hover,
     overflow-x: hidden;
   }
 }
+.beautiful-hand {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+  border: 5px solid #ff00cc;
+  border-radius: 12px;
+  box-shadow: 0 0 30px #ff00cc;
+}

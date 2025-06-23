@@ -336,6 +336,23 @@ button:hover {
   border: 1px solid #00ffff;
   padding: 1rem;
   margin-top: 1.5rem;
+
+  .glorious-hand {
+  width: 400px;
+  max-width: 95vw;
+  border: 5px solid #ff00cc;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 0 30px #ff00cc;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .glorious-hand {
+    width: 90% !important;
+  }
+}
+
   text-shadow: 0 0 2px #00ffff, 0 0 8px #ff00cc;
   box-shadow: 0 0 20px #00ffff;
   animation: flicker 1.2s infinite alternate;

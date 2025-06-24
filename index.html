@@ -71,21 +71,21 @@
       <img src="images/scan-hand.png" class="palm-scan" alt="Palm Scan" />
       <form id="palmForm">
         <label>Life Line:</label><br/>
-        <select name="lifeLine" id="lifeLine">
+        <select name="lifeLine">
           <option value="long">Long and deep</option>
           <option value="short">Short and faint</option>
           <option value="broken">Broken in places</option>
         </select><br/><br/>
 
         <label>Head Line:</label><br/>
-        <select name="headLine" id="headLine">
+        <select name="headLine">
           <option value="straight">Straight and sharp</option>
           <option value="curved">Curved and dreamy</option>
           <option value="split">Split into two</option>
         </select><br/><br/>
 
         <label>Heart Line:</label><br/>
-        <select name="heartLine" id="heartLine">
+        <select name="heartLine">
           <option value="high">High and strong</option>
           <option value="low">Low and short</option>
           <option value="chained">Chained or broken</option>
@@ -102,10 +102,9 @@
   </footer>
 
   <script>
-    const supabase = supabase.createClient(
-      'https://YOUR_SUPABASE_URL.supabase.co',
-      'YOUR_SUPABASE_ANON_KEY'
-    );
+    const supabaseUrl = 'https://vdwxytrubsqaecmqdbfx.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdX...'; // keep private if ever using service role
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
     function askTheOracle() {
       const responses = [
@@ -127,11 +126,10 @@
     const palmForm = document.getElementById("palmForm");
     palmForm.addEventListener("submit", async function(e) {
       e.preventDefault();
-      const life = document.getElementById("lifeLine").value;
-      const head = document.getElementById("headLine").value;
-      const heart = document.getElementById("heartLine").value;
+      const life = palmForm.lifeLine.value;
+      const head = palmForm.headLine.value;
+      const heart = palmForm.heartLine.value;
 
-      // Show mystical result
       let result = "📼 Reading your palm through static...\n";
 
       if (life === "long") result += "You’ve crossed timelines before. 🌀\n";
@@ -146,18 +144,25 @@
       if (heart === "low") result += "Your heart is armor and mystery. 🛡️\n";
       if (heart === "chained") result += "Every link forged in heartbreak. 🕸️\n";
 
-      document.getElementById("palmResult").innerText = result;
+      // Show result
+      const resultBox = document.getElementById("palmResult");
+      resultBox.innerText = result;
+      resultBox.classList.add("sparkle");
+      setTimeout(() => resultBox.classList.remove("sparkle"), 1500);
 
-      // Save to Supabase
-      const { error } = await supabase
-        .from('submissions')
-        .insert([{ life_line: life, head_line: head, heart_line: heart }]);
+      // Send to Supabase
+      const { error } = await supabase.from("submissions").insert([
+        {
+          life_line: life,
+          head_line: head,
+          heart_line: heart
+        }
+      ]);
 
       if (error) {
-        console.error(error);
-        alert("🌒 Submission failed.");
+        console.error("❌ Supabase submission error:", error.message);
       } else {
-        console.log("✅ Saved to Supabase");
+        console.log("✅ Palm submission saved.");
       }
     });
   </script>

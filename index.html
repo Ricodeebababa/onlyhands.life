@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>onlyhands.life</title>
@@ -40,7 +41,6 @@
         <p id="oracle-response" style="margin-top: 1.5rem;"></p>
       </section>
 
-      <!-- Correct and scaled image -->
       <img src="images/Beautiful-hand.gif" class="beautiful-hand" alt="Beautiful hand" />
 
       <button onclick="alert('You have been spiritually fingered.')">Enter the palms of truth</button>
@@ -71,21 +71,21 @@
       <img src="images/scan-hand.png" class="palm-scan" alt="Palm Scan" />
       <form id="palmForm">
         <label>Life Line:</label><br/>
-        <select name="lifeLine">
+        <select name="lifeLine" id="lifeLine">
           <option value="long">Long and deep</option>
           <option value="short">Short and faint</option>
           <option value="broken">Broken in places</option>
         </select><br/><br/>
 
         <label>Head Line:</label><br/>
-        <select name="headLine">
+        <select name="headLine" id="headLine">
           <option value="straight">Straight and sharp</option>
           <option value="curved">Curved and dreamy</option>
           <option value="split">Split into two</option>
         </select><br/><br/>
 
         <label>Heart Line:</label><br/>
-        <select name="heartLine">
+        <select name="heartLine" id="heartLine">
           <option value="high">High and strong</option>
           <option value="low">Low and short</option>
           <option value="chained">Chained or broken</option>
@@ -102,6 +102,11 @@
   </footer>
 
   <script>
+    const supabase = supabase.createClient(
+      'https://YOUR_SUPABASE_URL.supabase.co',
+      'YOUR_SUPABASE_ANON_KEY'
+    );
+
     function askTheOracle() {
       const responses = [
         "🌛 Absolutely.",
@@ -120,12 +125,13 @@
     }
 
     const palmForm = document.getElementById("palmForm");
-    palmForm.addEventListener("submit", function(e) {
+    palmForm.addEventListener("submit", async function(e) {
       e.preventDefault();
-      const life = palmForm.lifeLine.value;
-      const head = palmForm.headLine.value;
-      const heart = palmForm.heartLine.value;
+      const life = document.getElementById("lifeLine").value;
+      const head = document.getElementById("headLine").value;
+      const heart = document.getElementById("heartLine").value;
 
+      // Show mystical result
       let result = "📼 Reading your palm through static...\n";
 
       if (life === "long") result += "You’ve crossed timelines before. 🌀\n";
@@ -140,10 +146,19 @@
       if (heart === "low") result += "Your heart is armor and mystery. 🛡️\n";
       if (heart === "chained") result += "Every link forged in heartbreak. 🕸️\n";
 
-      const resultBox = document.getElementById("palmResult");
-      resultBox.innerText = result;
-      resultBox.classList.add("sparkle");
-      setTimeout(() => resultBox.classList.remove("sparkle"), 1500);
+      document.getElementById("palmResult").innerText = result;
+
+      // Save to Supabase
+      const { error } = await supabase
+        .from('submissions')
+        .insert([{ life_line: life, head_line: head, heart_line: heart }]);
+
+      if (error) {
+        console.error(error);
+        alert("🌒 Submission failed.");
+      } else {
+        console.log("✅ Saved to Supabase");
+      }
     });
   </script>
 </body>

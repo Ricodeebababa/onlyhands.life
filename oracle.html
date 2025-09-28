@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OnlyHands.life — Ask the Oracle</title>
+  <meta name="description" content="Ask the Oracle your question and receive playful, cryptic guidance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">OnlyHands<span>.life</span></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="oracle.html" class="active">Ask the Oracle</a>
+      <a href="shop.html">Palms of Truth</a>
+    </nav>
+  </header>
+
+  <main class="container page">
+    <h1 class="glow">Ask the <span>Oracle</span></h1>
+    <p class="muted">Type a question, press “Reveal,” and behold the palms of destiny.</p>
+
+    <div class="oracle-box">
+      <input id="oracle-input" type="text" placeholder="What do you seek?" aria-label="Ask your question" />
+      <button class="btn primary" id="oracle-btn">Reveal</button>
+    </div>
+
+    <div id="oracle-answer" class="answer" aria-live="polite"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> OnlyHands.life — All vibes reserved.</p>
+  </footer>
+
+  <script src="oracle.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

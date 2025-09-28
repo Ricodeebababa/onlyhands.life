@@ -1,170 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>onlyhands.life</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Monoton&display=swap" rel="stylesheet">
-  <style>
-    .beautiful-hand {
-      display: block;
-      margin: 2rem auto;
-      width: 100%;
-      max-width: 280px;
-      height: auto;
-      border: 5px solid #ff00cc;
-      border-radius: 12px;
-      box-shadow: 0 0 30px #ff00cc;
-    }
-
-    @media (max-width: 600px) {
-      .beautiful-hand {
-        max-width: 80%;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OnlyHands.life — Home</title>
+  <meta name="description" content="OnlyHands.life — playful, neon, and a little mystical. Ask the Oracle or enter the Palms of Truth." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <header>
-    <h1>onlyhands.life</h1>
-    <img src="images/anime-hand.gif" alt="Animated hand" style="width: 120px; margin: 1rem auto;" />
-    <marquee behavior="scroll" direction="left" scrollamount="6">It’s not what you think.</marquee>
+  <header class="site-header">
+    <a class="brand" href="index.html">OnlyHands<span>.life</span></a>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="oracle.html">Ask the Oracle</a>
+      <a href="shop.html">Palms of Truth</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <section class="oracle">
-        <button class="oracle-button" onclick="askTheOracle()">Ask the Oracle</button>
-        <p id="oracle-response" style="margin-top: 1.5rem;"></p>
-      </section>
-
-      <img src="images/Beautiful-hand.gif" class="beautiful-hand" alt="Beautiful hand" />
-
-      <button onclick="alert('You have been spiritually fingered.')">Enter the palms of truth</button>
-    </section>
-
-    <section class="intro">
-      <h2>Welcome to onlyhands</h2>
-      <p>A surreal blend of hand modeling, profiling, and digital divination. Part satire, part psychic hotline. Entirely too much.</p>
-    </section>
-
-    <section class="preview">
-      <div class="card">
-        <h3>The Gallery</h3>
-        <p>Absurd, artistic, and hand-crafted imagery. Sometimes literal.</p>
+  <main class="hero">
+    <div class="hero-inner">
+      <h1 class="glow">Welcome to <span>OnlyHands.life</span></h1>
+      <p class="tagline">Mystic palms, neon vibes, and useful goodies.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="oracle.html">Ask the Oracle</a>
+        <a class="btn ghost" href="shop.html">Enter the Palms of Truth</a>
       </div>
-      <div class="card">
-        <h3>The Profiles</h3>
-        <p>Submit your hands. Get a personality breakdown and your potential criminal record (fictional... probably).</p>
-      </div>
-      <div class="card">
-        <h3>The Oracle</h3>
-        <p>Channeling deep truths through digit-based divination. Pinkies hold secrets.</p>
-      </div>
-    </section>
-
-    <section class="palm-reader">
-      <h2>Virtual Palm Reader</h2>
-      <img src="images/scan-hand.png" class="palm-scan" alt="Palm Scan" />
-      <form id="palmForm">
-        <label>Life Line:</label><br/>
-        <select name="lifeLine">
-          <option value="long">Long and deep</option>
-          <option value="short">Short and faint</option>
-          <option value="broken">Broken in places</option>
-        </select><br/><br/>
-
-        <label>Head Line:</label><br/>
-        <select name="headLine">
-          <option value="straight">Straight and sharp</option>
-          <option value="curved">Curved and dreamy</option>
-          <option value="split">Split into two</option>
-        </select><br/><br/>
-
-        <label>Heart Line:</label><br/>
-        <select name="heartLine">
-          <option value="high">High and strong</option>
-          <option value="low">Low and short</option>
-          <option value="chained">Chained or broken</option>
-        </select><br/><br/>
-
-        <button type="submit" class="oracle-button">Read My Palm</button>
-      </form>
-      <p id="palmResult" class="vhs-output"></p>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 onlyhands.life | Built with love and slightly cursed code</p>
+  <section class="features container">
+    <div class="grid">
+      <div class="card">
+        <h3>Playful</h3>
+        <p>Lighthearted answers, a little chaos, and a hint of wisdom.</p>
+      </div>
+      <div class="card">
+        <h3>Useful</h3>
+        <p>Downloadable resources, guides, and printables that actually help.</p>
+      </div>
+      <div class="card">
+        <h3>Simple</h3>
+        <p>No accounts, no clutter. Click, enjoy, done.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> OnlyHands.life — All vibes reserved.</p>
   </footer>
 
-  <script>
-    const supabaseUrl = 'https://vdwxytrubsqaecmqdbfx.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdX...'; // keep private if ever using service role
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-    function askTheOracle() {
-      const responses = [
-        "🌛 Absolutely.",
-        "🔮 The spirits say... try again later.",
-        "🔁️ All signs point to chaos.",
-        "✨ You already know the answer.",
-        "☠️ LOL no.",
-        "🪬 The hand you seek is seeking you.",
-        "👻 Ghosts approve.",
-        "🫿 Not while Mercury’s in retrograde.",
-        "🔥 Yes — but at what cost?",
-        "🚰 It's written in the stars... maybe."
-      ];
-      const random = responses[Math.floor(Math.random() * responses.length)];
-      document.getElementById("oracle-response").innerText = random;
-    }
-
-    const palmForm = document.getElementById("palmForm");
-    palmForm.addEventListener("submit", async function(e) {
-      e.preventDefault();
-      const life = palmForm.lifeLine.value;
-      const head = palmForm.headLine.value;
-      const heart = palmForm.heartLine.value;
-
-      let result = "📼 Reading your palm through static...\n";
-
-      if (life === "long") result += "You’ve crossed timelines before. 🌀\n";
-      if (life === "short") result += "You burn fast. Some stars do. ✨\n";
-      if (life === "broken") result += "Your soul fell through cracks in fate. 🔮\n";
-
-      if (head === "straight") result += "Your logic slices like neon wire. ⚡\n";
-      if (head === "curved") result += "Your mind loops through dreamcode. 💭\n";
-      if (head === "split") result += "Two minds. Two truths. 👁️👁️\n";
-
-      if (heart === "high") result += "You love hard and leave echoes. 💘\n";
-      if (heart === "low") result += "Your heart is armor and mystery. 🛡️\n";
-      if (heart === "chained") result += "Every link forged in heartbreak. 🕸️\n";
-
-      // Show result
-      const resultBox = document.getElementById("palmResult");
-      resultBox.innerText = result;
-      resultBox.classList.add("sparkle");
-      setTimeout(() => resultBox.classList.remove("sparkle"), 1500);
-
-      // Send to Supabase
-      const { error } = await supabase.from("submissions").insert([
-        {
-          life_line: life,
-          head_line: head,
-          heart_line: heart
-        }
-      ]);
-
-      if (error) {
-        console.error("❌ Supabase submission error:", error.message);
-      } else {
-        console.log("✅ Palm submission saved.");
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

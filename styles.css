@@ -80,3 +80,30 @@ h1{margin:0 0 8px 0;font-size:clamp(2rem, 4vw, 3rem)}
 
 .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .product h3{margin-top:0}
+
+
+/* OnlyHands.life — Terminal theme */
+:root{
+  --bg:#0a0f0a; --panel:#0c140c; --text:#e6ffe6; --muted:#8fbf8f; --accent:#00ff7f; --border:#173417;
+}
+*{box-sizing:border-box} html,body{margin:0}
+body{font:16px/1.6 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;background:var(--bg);color:var(--text)}
+.container{max-width:980px;margin:0 auto;padding:24px}
+.site-header{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid var(--border);background:#0b120b}
+.brand{text-decoration:none;color:var(--accent);font-weight:800}
+.nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+.nav a:hover,.nav a.active{color:var(--text)}
+.hero{display:flex;align-items:center;justify-content:center;min-height:52vh;padding:40px 24px;text-align:center}
+h1{margin:0 0 10px;font-size:clamp(30px,6vw,52px);font-weight:900}
+h1 span{color:var(--accent)}
+.tagline{color:var(--muted);margin:0 0 24px}
+.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 16px;border:1px solid var(--border);background:#0d160d;color:var(--text);text-decoration:none}
+.btn.primary{background:var(--accent);color:#062; border-color:var(--accent)}
+.features .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;padding:16px 0}
+.card{background:#0b120b;border:1px dashed var(--border);padding:14px}
+.site-footer{padding:20px 22px;border-top:1px solid var(--border);color:var(--muted);text-align:center}
+.oracle-box{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 10px}
+.oracle-box input{flex:1 1 360px;min-width:220px;background:#0b120b;color:var(--text);border:1px solid var(--border);padding:10px 12px}
+.answer{min-height:70px;margin-top:6px;padding:12px;border:1px solid var(--border);background:#0b120b}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}

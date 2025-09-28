@@ -1,81 +1,57 @@
-/* OnlyHands.life — Retro Neon + Hands (keep your top nav) */
-:root{
-  --bg:#05040a;            /* deep space */
-  --text:#eaf2ff;          /* soft white-blue */
-  --muted:#9aa4b3;
-  --hotpink:#ff00cc;       /* neon magenta */
-  --cyan:#00f5ff;          /* neon cyan */
-  --yellow:#fff35c;        /* neon yellow */
-  --panel:#0b0a14;
-  --border:rgba(255,255,255,.08);
+/* === FONTS EXPECTED ===
+Load in index.html head:
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&display=swap" rel="stylesheet">
+*/
+
+/* === RESET + BODY === */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  font-family: 'Press Start 2P', cursive;
+  background: radial-gradient(circle at top, #000000, #1a0033);
+  color: #39ff14;
+  text-align: center;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font:16px/1.6 "Urbanist",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:var(--bg);
-  color:var(--text);
-}
-
-/* ----- layout ----- */
-.container{max-width:1080px;margin:0 auto;padding:24px}
-.page{padding:40px 0}
-
-/* ----- header / nav (kept clean) ----- */
+/* ======= RETRO TOP NAV (NEW) ======= */
 .site-header{
-  position:sticky;top:0;z-index:20;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 22px;border-bottom:1px solid var(--border);
-  background:rgba(5,4,10,.75);backdrop-filter:blur(8px)
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 1.2rem;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  border-bottom: 2px solid #ff00cc;
+  box-shadow: 0 0 18px #ff00cc, 0 0 24px #00ffff;
+  animation: flicker 2.2s infinite alternate;
 }
-.brand{font-weight:900;letter-spacing:.3px;color:var(--text);text-decoration:none}
-.brand span{background:linear-gradient(90deg,var(--hotpink),var(--cyan));-webkit-background-clip:text;color:transparent}
-.nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:800}
-.nav a:hover,.nav a.active{color:var(--text)}
-
-/* ----- NEON HERO with hand + 80s grid ----- */
-.hero{
-  position:relative;overflow:hidden;
-  display:grid;place-items:center;min-height:70vh;padding:40px 24px;text-align:center;
-  background:
-    radial-gradient(1000px 600px at 20% -10%, rgba(255,0,204,.18), transparent 55%),
-    radial-gradient(800px 500px at 115% 0%, rgba(0,245,255,.16), transparent 45%);
+.brand{
+  font-family: 'Monoton', cursive;
+  font-size: 1.9rem;
+  text-decoration: none;
+  color: #00ffff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px #00ffff, 0 0 12px #ff00cc, 0 0 24px #ffffff;
 }
-
-/* star specks */
-.hero::before{
-  content:""; position:absolute; inset:0; pointer-events:none; opacity:.15;
-  background:
-    radial-gradient(1px 1px at 10% 20%, #fff 70%, transparent 72%) repeat,
-    radial-gradient(1px 1px at 30% 70%, #fff 70%, transparent 72%) repeat,
-    radial-gradient(1px 1px at 80% 30%, #fff 70%, transparent 72%) repeat;
-  background-size: 200px 200px, 260px 260px, 300px 300px;
+.brand span{ color:#ff66cc }
+.nav a{
+  display: inline-block;
+  margin-left: 8px;
+  padding: .55rem .8rem;
+  font-size: .72rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  border: 2px solid #fff;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+  background-size: 300% 300%;
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+  animation: shinePulse 1.5s infinite, colorFlow 5s ease infinite;
 }
+.nav a:hover{ transform: scale(1.06); background: #39ff14; color:#000; box-shadow: 0 0 10px #39ff14, 0 0 25px #39ff14 }
+.nav a.active{ border-color:#fff35c; box-shadow: 0 0 12px #fff35c, 0 0 22px #fff35c }
 
-/* 80s grid floor */
-.hero::after{
-  content:""; position:absolute; inset:auto -10% 0 -10%; height:55%;
-  background:
-    linear-gradient(transparent 0%, rgba(0,0,0,.6) 35%, rgba(0,0,0,.9) 100%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.09) 0 2px, transparent 2px 30px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.09) 0 2px, transparent 2px 60px);
-  transform: perspective(700px) rotateX(70deg) translateY(20px);
-  transform-origin: top;
-  filter: drop-shadow(0 0 30px rgba(0,245,255,.15));
-}
-
-.hero-inner{max-width:860px; position:relative; z-index:2}
-
-h1{margin:0 0 10px; font-size:clamp(34px,6vw,72px); font-weight:900; letter-spacing:-.5px}
-h1 span{
-  background:linear-gradient(90deg,var(--hotpink),var(--cyan));
-  -webkit-background-clip:text;color:transparent;
-  text-shadow: 0 0 18px rgba(255,0,204,.35), 0 0 22px rgba(0,245,255,.25);
-}
-
-/* neon flicker on the hand */
-.neon-hand{
-  font-size:clamp(56px,10vw,120px);
-  margin:0 auto 14px;
-  filter: drop-sh
+/* === HEADER (HERO BAND) === */
+header { /* your retro banner behind the big title */
+  position: relative;
